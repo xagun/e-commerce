@@ -29,7 +29,7 @@ To get started with the project, follow these steps:
 Use any package manager like yarn, npm, pnpm etc. as per your preferences
 
 2. **Install necessary dependencies**:
-   ```npm install or yarn install
+   npm install or yarn install
 
 3. **Run the application**:
-   ```npm start or yarn start
+   npm start or yarn start

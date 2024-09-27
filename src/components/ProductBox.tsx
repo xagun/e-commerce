@@ -1,7 +1,7 @@
 import React from "react";
 import { Product } from "../types/Iproducts";
 // import { useCartStore } from "../store/CartStore";
-import StarRating from "./Star";
+// import StarRating from "./Star";
 
 interface ProductBoxProps {
   product: Product;
@@ -34,7 +34,7 @@ const ProductBox = ({ product, handleClick }: ProductBoxProps) => {
         </h2>
 
         <h4>$ {product.price}</h4>
-        <StarRating rating={product.rating.rate} />
+        {/* <StarRating rating={product.rating.rate} /> */}
       </div>
     </div>
   );

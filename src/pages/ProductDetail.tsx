@@ -35,15 +35,16 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
       <ProductImage src={product.image} alt={product.title} />
       <ProductDetails>
         <Title>{product.title}</Title>
-        <Description>{product.description}</Description>
-        <Category>Category: {product.category}</Category>
-        <Price>Price: ${product.price}</Price>
+        <p>{product.description}</p>
+        <div>Category: {product.category}</div>
+        <div><span className="">Price: </span><span className="text-2xl">${product.price}</span></div>
         <Rating>
-          Rating: {product.rating.rate} / 5 ({product.rating.count} reviews)
+         <span className="text-black"> Rating:</span> {product.rating.rate} / 5 ({product.rating.count} reviews)
         </Rating>
         <StarRating rating={product?.rating?.rate || 0} />
 
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex justify-end items-center gap-4 mt-3  ">
+          Add to cart:
           <button
             className="text-xl text-black font-bold px-3 border bg-gray-200 rounded-md"
             onClick={() => decreaseQuantity(product.id)}
@@ -68,6 +69,11 @@ const ProductDetailWrapper = styled.div`
   padding: 20px;
   display: flex;
   gap: 40px;
+
+
+  @media (max-width: 768px) {
+    flex-direction:column;
+  }
 `;
 
 const Title = styled.h2`
@@ -82,25 +88,18 @@ const ProductImage = styled.img`
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    margin:auto;
+    width: 250px;
+  height: 350px;
+  }
 `;
 
-const ProductDetails = styled.div``;
-
-const Description = styled.p`
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 8px;
-`;
-
-const Category = styled.p`
-  font-size: 0.9rem;
-  color: #777;
-`;
-
-const Price = styled.p`
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 8px;
+const ProductDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const Rating = styled.p`

@@ -5,7 +5,7 @@ export const SkeletonBoxView = () => {
       role="status"
       className="space-y-8 animate-pulse md:space-y-0 rtl:space-x-reverse md:flex flex-col md:items-center"
     >
-      <div className="flex items-center justify-center bg-gray-300 rounded-xl w-[300px]  md:w-[190px] lg:w-[210px] h-[200px] lg:h-[260px] xl:w-[240px] mb-4">
+      <div className="flex items-center justify-center bg-gray-300 rounded-2xl w-[300px]  md:w-[190px] lg:w-[210px] h-[200px] lg:h-[260px] xl:w-[240px] mb-4">
         <svg
           className="w-20 h-20 text-gray-400"
           aria-hidden="true"
@@ -29,7 +29,7 @@ export const SkeletonBoxView = () => {
 export const SkeletonListView = () => {
   return (
     <div className="flex items-center gap-4 p-4 border rounded-lg w-full animate-pulse">
-      <div className="w-32 h-32 bg-gray-300 rounded-md"></div>
+      <div className="w-36 h-36 bg-gray-300 rounded-2xl"></div>
       <div className="flex-grow space-y-2">
         <div className="h-5 bg-gray-200 rounded-full w-[60%]"></div>
         <div className="h-5 bg-gray-200 rounded-full w-[40%]"></div>

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { fetchProducts, fetchProductsByCategory } from "../api/storeapi";
 import ProductBox from "../components/ProductBox";
 import Sidebar from "../components/Sidebar";
-
 import { SkeletonBoxView, SkeletonListView } from "../components/Skeleton";
 import Modal from "../components/Modal";
 import { Product } from "../types/Iproducts";
@@ -11,13 +10,12 @@ import ProductDetail from "./ProductDetail";
 import { FaBars, FaTh } from "react-icons/fa";
 import { cn } from "../lib/utils";
 import ProductListItem from "../components/ProductListItem";
+
 const ProductList: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(8);
-
   const [activeCategory, setActiveCategory] = useState<string>("");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
   const [isGridView, setIsGridView] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -33,7 +31,11 @@ const ProductList: React.FC = () => {
     toggleModal();
   };
 
-  const { data: products, isLoading } = useQuery({
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["products", activeCategory],
     queryFn:
       activeCategory !== ""
@@ -42,7 +44,6 @@ const ProductList: React.FC = () => {
   });
 
   const sortedData = products?.slice((page - 1) * pageSize, page * pageSize);
-  const totalProducts = products?.length || 0;
 
   return (
     <>
@@ -67,10 +68,11 @@ const ProductList: React.FC = () => {
                 onClick={() => setIsGridView(true)}
                 className={cn(isGridView && "bg-black rounded-full", "p-2")}
               >
-                <FaTh size={22} color={!isGridView ? "black" : "white"}  />
+                <FaTh size={22} color={!isGridView ? "black" : "white"} />
               </button>
             </div>
           </div>
+
           {isLoading ? (
             <div className="flex flex-wrap gap-6 justify-center lg:justify-center ">
               {Array.from({ length: 9 }).map((_, index) =>
@@ -80,6 +82,11 @@ const ProductList: React.FC = () => {
                   <SkeletonListView key={index} />
                 )
               )}
+            </div>
+          ) : error ? (
+            <div className="text-red-500 text-center">
+              <h2>Error: {error.message}</h2>
+              <p>Please try refreshing the page.</p>
             </div>
           ) : (
             <div
@@ -107,22 +114,24 @@ const ProductList: React.FC = () => {
                 ))}
             </div>
           )}
-          <div className="flex mt-4 gap-2 justify-center">
-            <button
-              className="px-4 py-2 bg-black text-white rounded disabled:opacity-50"
-              onClick={() => setPage((old) => Math.max(old - 1, 1))}
-              disabled={page === 1}
-            >
-              Prev
-            </button>
-            <button
-              className="px-4 py-2 bg-black  text-white rounded disabled:opacity-50"
-              onClick={() => setPage((old) => old + 1)}
-              disabled={page * pageSize >= totalProducts}
-            >
-              Next
-            </button>
-          </div>
+          {!isLoading && !error && (
+            <div className="flex mt-4 gap-2 justify-center">
+              <button
+                className="px-4 py-2 bg-black text-white rounded disabled:opacity-50"
+                onClick={() => setPage((old) => Math.max(old - 1, 1))}
+                disabled={page === 1}
+              >
+                Prev
+              </button>
+              <button
+                className="px-4 py-2 bg-black text-white rounded disabled:opacity-50"
+                onClick={() => setPage((old) => old + 1)}
+                disabled={!products || products.length < pageSize}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
 
         <Modal

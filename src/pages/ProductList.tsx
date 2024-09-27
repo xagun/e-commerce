@@ -42,6 +42,7 @@ const ProductList: React.FC = () => {
   });
 
   const sortedData = products?.slice((page - 1) * pageSize, page * pageSize);
+  const totalProducts = products?.length || 0;
 
   return (
     <>
@@ -117,7 +118,7 @@ const ProductList: React.FC = () => {
             <button
               className="px-4 py-2 bg-black  text-white rounded disabled:opacity-50"
               onClick={() => setPage((old) => old + 1)}
-              disabled={products && products.length < 10}
+              disabled={page * pageSize >= totalProducts}
             >
               Next
             </button>

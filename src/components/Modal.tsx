@@ -46,9 +46,13 @@ const ModalWrapper = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 60vw;
-  max-width: 80vh;
+  max-height: 90vh;
+  max-width: 70vw;
   position: relative;
+  
+  @media (max-width: 1024px) {
+  max-width: 90vw;
+  }
 `;
 
 const ModalHeader = styled.div`

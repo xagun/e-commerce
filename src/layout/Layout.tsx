@@ -5,25 +5,21 @@ import Footer from "../components/Footer";
 import "@fontsource/poppins";
 import styled from "styled-components";
 
-
 const Container = styled.div`
-  font-family: 'Poppins', sans-serif;
-  margin:auto;
+  font-family: "Poppins", sans-serif;
+  margin: auto;
 `;
-
 
 const Layout = () => {
   return (
-    // <div className="font-nunito mx-auto">
-  <Container>
-        <Header />
+    <Container>
+      <Header />
       <div className="max-w-[1440px] px-8 md:px-16 mx-auto py-24 ">
         <Outlet />
       </div>
 
       <Footer />
-  </Container>
-    // </div>
+    </Container>
   );
 };
 

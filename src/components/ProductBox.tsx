@@ -1,7 +1,5 @@
 import React from "react";
 import { Product } from "../types/Iproducts";
-// import { useCartStore } from "../store/CartStore";
-import StarRating from "./Star";
 
 interface ProductBoxProps {
   product: Product;
@@ -9,7 +7,6 @@ interface ProductBoxProps {
 }
 
 const ProductBox = ({ product, handleClick }: ProductBoxProps) => {
-  // const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div className="h-[320px] w-full sm:w-[300px] md:h-[320px] md:w-[190px] lg:h-[400px] lg:w-[210px] xl:h-[420px] xl:w-[240px] mb-4">
@@ -34,7 +31,6 @@ const ProductBox = ({ product, handleClick }: ProductBoxProps) => {
         </h2>
 
         <h4>$ {product.price}</h4>
-        <StarRating rating={product.rating.rate} />
       </div>
     </div>
   );

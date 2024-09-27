@@ -14,7 +14,7 @@ const ProductListItem = ({ product, handleClick }: ProductBoxProps) => {
   <img
       src={product.image}
       alt={product.title}
-      className="w-32 h-32 object-contain mix-blend-multiply"
+      className="w-36 h-32 object-contain mix-blend-multiply"
     />
   </div>
    <div className='flex w-full flex-wrap gap-5'>

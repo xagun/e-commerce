@@ -44,8 +44,6 @@ const ItemContainer = styled.div`
   }
 `;
 
-// flex flex-col w-[400px]:flex-row gap-4 p-4 border-b
-
 const Cart = () => {
   const [shippingCharge, setShippingCharge] = useState(24);
   const cart = useCartStore((state) => state.cart);

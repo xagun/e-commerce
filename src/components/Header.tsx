@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.svg";
 import CartIcon from "../assets/icons/CartIcon";
 import SearchIcon from "../assets/icons/SearchIcon";
 import FavouritesIcon from "../assets/icons/FavouritesIcon";
@@ -22,7 +21,6 @@ const Header = () => {
      <div className="flex justify-between px-8 md:px-16 py-5 max-w-[1440px] mx-auto">
         <Link to="/">
           <div className="flex items-center gap-2">
-            {/* <img src={logo} alt="No preview available" /> */}
             <span className="text-[24px] font-bold max-sm:text-[20px]">
               E-Commerce
             </span>

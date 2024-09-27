@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hover-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.346); 
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .hover-overlay:hover::after {
+    opacity: 1;
+  }

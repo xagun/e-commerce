@@ -5,18 +5,17 @@ This project is a simple e-commerce application built using React. The app allow
 
 
 ### Features
-- Product Lit with categories filter
-- 
-- Feature 3: Describe the feature.
+- Product List with categories filter
+- Cart 
 
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
 - **React Router**: For routing in the application.
 - **Styled Components/Tailwind CSS**: For styling the components.
-- **Axios/Fetch**: For making API calls.
-- **Redux/MobX**: For state management (if applicable).
-- **Any other technologies you used**.
+- **React Query**: For data fetching and caching.
+- **Zustand**: For state management.
+- **React Icons**: For icons in the application.
 
 ## Installation
 
@@ -30,7 +29,7 @@ To get started with the project, follow these steps:
 Use any package manager like yarn, npm, pnpm etc. as per your preferences
 
 2. **Install necessary dependencies**:
-   ```npm install
+   ```npm install or yarn install
 
 3. **Run the application**:
-   ```npm start
+   ```npm start or yarn start
